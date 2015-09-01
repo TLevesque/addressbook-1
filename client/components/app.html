@@ -1,0 +1,14 @@
+<template name="ApplicationLayout">	
+
+	{{> yield "nav" }}
+	
+	<main class="animated fadeIn">	
+		<div class="container">	
+			{{> yield "main"}}
+		</div>	
+	</main>
+
+	<div class="container">
+		{{> footer}}
+	</div>
+</template>

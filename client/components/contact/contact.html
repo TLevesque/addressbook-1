@@ -1,0 +1,73 @@
+<template name="contacts">
+	<h1>All Contacts</h1>
+	<section>
+		{{ #each contacts }}
+			{{> contactShort }}
+		{{ /each }}		
+	</section>
+</template>	
+
+<template name="contactShort">
+	{{#momentum plugin='iron-router' options=transition}}
+	  <div class="container">
+		<a href="/contact/{{_id}}" class="row contact-card">
+			<div class="col s3">
+				<i class="material-icons large">perm_identity</i>
+			</div>
+			<div class="col s9">
+				<h3>{{firstName}} {{lastName}}</h3>
+				<div class="quick-details">
+					<input type="email" readonly value="{{email}}">
+					<input type="tel" readonly value="{{phone}}">
+				</div>
+			</div>
+		</a>
+	</div>
+	{{/momentum}}
+	
+</template>
+
+<template name="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col s12 m4">
+				<i class="material-icons large">perm_identity</i>
+				<div class="edit-delete-contact">
+					{{#if isEditing}}
+						<button class="btn waves-effect waves-light done" type="button" name="done"><i class="left material-icons">done</i>
+						</button>
+					{{else}}
+						<button class="btn waves-effect waves-light edit" type="button" name="edit"><i class="left material-icons">settings</i>
+						</button>
+					{{/if}}
+						<button class="btn waves-effect waves-light delete" type="button" name="delete"><i class="left material-icons">delete</i>
+						</button>
+				</div>	
+			</div>
+			<div class="col s12 m8">
+				{{#if isEditing}}
+				<ul>
+					<li class="row"><input type="text" value="{{firstName}}" name="firstName" class="col s5" placeholder="First Name">&nbsp;<input type="text" value="{{lastName}}" name="lastName" class="col s6" placeholder="Last Name"></li>
+					<li><input type="email" value="{{email}}" name="email"></li>
+					<li><input type="tel" value="{{phone}}" name="phone"></li>
+					<li><textarea value="{{address}}" name="address"></textarea></li>
+					<li><textarea value="{{notes}}" name="notes"></textarea></li>
+				</ul>
+				{{else}}
+				<ul>
+					<li><strong>{{firstName}} {{lastName}}</strong></li>
+					<li>{{email}}</li>
+					<li>{{phone}}</li>
+					<li>{{address}}</li>
+					<li>{{notes}}</li>
+				</ul>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+
+
+
