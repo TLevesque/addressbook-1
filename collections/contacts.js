@@ -9,7 +9,7 @@ Contacts.allow({
 	},
 	remove: function(userID, doc) {
 		return true;
-	},
-	fetch: ['owner']
+	}
+	// fetch: ['owner']
 });
 

@@ -1,11 +1,28 @@
+<!-- Main Layout -->
 <template name="ApplicationLayout">	
 
 	{{> yield "nav" }}
 	
-	<main class="animated fadeIn">	
+	<main class="animated">	
 		<div class="container">	
 			{{> yield "main"}}
 		</div>	
+	</main>
+
+	<div class="container">
+		{{> footer}}
+	</div>
+</template>
+
+
+<!-- Login Layout -->
+<template name="LoginLayout">
+	{{> yield "nav" }}
+
+	<main class="animated">
+		<div class="container">
+			{{> yield "main"}}
+		</div>
 	</main>
 
 	<div class="container">
