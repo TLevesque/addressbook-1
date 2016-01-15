@@ -1,28 +1,24 @@
-<template name="login">
-	{{#if currentUser}}
-		{{> dashboard}}
-	{{else}}
-		<div class="login-container">
+<template name="register">
+	<div class="login-container">
 			<div class="addressbook-logo circle">
 				<span class="icon-username"></span>
 			</div>	
-			<h4>Sign In</h4>
+			<h4>Create an Account</h4>
 			<p>Enter your information below</p>
 			<form>
 				<div class="input-group">
 					<span class="icon-username"></span>
-					<input type="email" name="loginEmail" placeholder="email" class="icon-username" />
+					<input type="email" name="registerEmail" placeholder="email" class="icon-username" />
 				</div>
 				<div class="input-group">
 					<span class="icon-password"></span>
-					<input type="password" name="loginPassword" placeholder="password" class="icon-password" />
+					<input type="password" name="registerPassword" placeholder="password" class="icon-password" />
 				</div>
-				<input type="submit" value="Sign In" />
+				<input type="submit" value="Register" />
 			</form>
 			<div class="account-help">
-				<a href="/register" class="account create">Create an Account</a>
+				<a href="/login" class="account create">Sign In</a>
 				<a href="/forgot-password" class="account forgot-password">Forgot Password?</a>
 			</div>
 		</div>	
-	{{/if}}
 </template>

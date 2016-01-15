@@ -1,0 +1,22 @@
+@import '../../css/less/mixins';
+
+button {
+	background: @dark;
+	color: @white;
+	font-size: 15px;
+	font-weight: lighter;
+	padding: 15px;
+	text-align: center;
+	border: none;
+	float: left;
+	margin-top: 20px;
+	margin-right: 2px;
+	cursor: pointer;
+	&:hover, &:focus {
+		background: @darkhover;
+		outline: none;
+	}
+	&:active {
+		background: @darkactive;
+	}
+}

@@ -1,0 +1,58 @@
+@import '../../css/less/mixins';
+
+
+.login-container {
+	padding: 100px 15px 15px;
+	width: 100%;
+	height: 100vh;
+	max-width: 400px;
+	margin: 0 auto;
+	position: relative;
+	.addressbook-logo {
+		background: @dark;
+		width: 75px;
+		height: 75px;
+		margin: 40px auto;
+		padding: 15px 10px;
+		text-align: center;
+		span {
+			color: @primary;
+			font-size: 40px;
+		}
+	}
+
+	.account-help {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		display: block;
+		max-width: 100%;
+		padding: 0 0 20px;
+		margin: 0 15px;
+		border-top: 1px solid @light;
+		font-size: 0;
+
+		.account {
+			display: inline-block;
+			text-decoration: none;
+			font-size: 15px;
+			font-weight: lighter;
+			color: @light-text;
+			padding: 25px 20px;
+			text-align: center;
+			background: transparent;
+			width: 50%;
+
+			&+.account {
+				border-left: 1px solid @light;
+			}
+
+			&:hover, &:focus {
+				background: @primaryhover;
+				color: @dark;
+			}
+		}
+	}
+}
+

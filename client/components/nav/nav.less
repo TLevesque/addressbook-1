@@ -1,30 +1,40 @@
-/*@import '../../css/less/imports';
+@import '../../css/less/mixins';
 
-.bg-gray {
-	background-color: @gray-darker;
-}
 nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	height: 100%;
+	width: 70px;
+	margin: 0;
 	padding: 0;
-	width: 100%;
-	margin: 0 0 20px;
-	background: inherit;
+	background: @dark;
 
-	a, a:link, a:visited {
-		display: block;
-		padding: 20px;
-		text-decoration: none;
-		color: @white;
-		background-color: @gray-darker;
-		border-right: 1px solid @gray-dark;
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
 
-		&:last-child {
-			border-right: none;
+		li {
+			display: block;
+			padding: 0;
+			margin: 0;
+
+			a, a:link, a:visited {
+				display: block;
+				padding: 25px 20px;
+				text-align: center;
+				text-decoration: none;
+				color: @light;
+				background: @dark;
+			}
+			a:active, a:focus {
+				background: @dark * 2.3;
+			}
+			a:hover {
+				background: @dark * 1.5;
+			}
 		}
 	}
-	a:hover, a:focus {
-		background-color: @gray-darker * 0.8;
-	}
-	a:active {
-		background-color: @gray-darker * 0.6;
-	}
-}*/
+}

@@ -11,9 +11,3 @@ reactive-var
 less
 accounts-base
 accounts-password
-# particle4dev:upload-avatar
-indymike:avatar
-percolate:momentum-iron-router
-accounts-ui-unstyled
-jamielob:accounts-ui-no-dropdown
-insecure

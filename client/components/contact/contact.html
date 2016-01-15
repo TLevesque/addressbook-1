@@ -1,63 +1,71 @@
 <template name="contacts">
 	<h1>All Contacts</h1>
 	<section>
-		{{ #each contacts }}
-			{{> contactShort }}
-		{{ /each }}		
+		{{#if contacts.count}}
+			{{ #each contacts }}
+				{{> contactShort }}
+			{{ /each }}		
+		{{else}}	
+		<p>You're lame. You haz no friends!</p>
+		{{/if}}
 	</section>
 </template>	
 
 <template name="contactShort">
 	<a href="/contact/{{_id}}" class="row contact-card">
-		<div class="col s3">
-			<i class="material-icons large">perm_identity</i>
+		<div class="profile-image">
+			<span class="icon-contact profile"></span>
 		</div>
-		<div class="col s9">
+		<div class="profile-information">
 			<h3>{{firstName}} {{lastName}}</h3>
 			<div class="quick-details">
 				<input type="email" readonly value="{{email}}">
 				<input type="tel" readonly value="{{phone}}">
 			</div>
 		</div>
-	</a>	
+	</a>
 </template>
 
 <template name="contact">
-	<div class="row">
-		<div class="col s12 m4">
-			<i class="material-icons large">perm_identity</i>
-			<div class="edit-delete-contact">
-				{{#if isEditing}}
-					<button class="btn waves-effect waves-light done" type="button" name="done"><i class="left material-icons">done</i>
-					</button>
-				{{else}}
-					<button class="btn waves-effect waves-light edit" type="button" name="edit"><i class="left material-icons">settings</i>
-					</button>
-				{{/if}}
-					<button class="btn waves-effect waves-light delete" type="button" name="delete"><i class="left material-icons">delete</i>
-					</button>
-			</div>	
+
+	<div class="edit-delete-contact">
+		{{#if isEditing}}
+			<button class="icon-check done" type="button" name="done">Done</button>
+		{{else}}
+			<button class="icon-edit edit" type="button" name="edit">Edit</button>
+		{{/if}}
+			<button class="icon-delete delete" type="button" name="delete">Delete</button>
+	</div>	
+	{{#if isEditing}}
+		<form>
+			<div class="input-group">
+				<input type="text" name="firstName" id="firstName" placeholder="First Name" aria-label="First Name" value="{{firstName}}" />
+			</div>
+			<div class="input-group">
+				<input type="text" name="lastName" id="lastName" placeholder="Last Name" aria-label="Last Name" value="{{lastName}}" />
+			</div>
+			<div class="input-group">
+				<input type="email" name="email" id="email" placeholder="Email" aria-label="Email" value="{{email}}" />
+			</div>
+			<div class="input-group">
+				<input type="tel" name="phone" id="phone" placeholder="Phone" aria-label="Phone" value="{{phone}}" />
+			</div>
+			<div class="input-group">
+				<textarea name="address" id="address" placeholder="Address" aria-label="Address">{{address}}</textarea>
+			</div>
+			<div class="input-group">
+				<textarea name="notes" id="notes" placeholder="Notes" aria-label="Notes">{{notes}}</textarea>
+			</div>
+		</form>	
+	{{else}}
+		<div class="contact-card">
+			<input type="text" readonly value="{{firstName}} {{lastName}}" />
+			<input type="email" readonly value="{{email}}" />
+			<input type="phone" readonly value="{{phone}}" />
+			<input type="text" readonly value="{{address}}" />
+			<input type="text" readonly value="{{notes}}" />
 		</div>
-		<div class="col s12 m8">
-			{{#if isEditing}}
-			<ul>
-				<li class="row"><input type="text" value="{{firstName}}" name="firstName" class="col s5" placeholder="First Name">&nbsp;<input type="text" value="{{lastName}}" name="lastName" class="col s6" placeholder="Last Name"></li>
-				<li><input type="email" value="{{email}}" name="email"></li>
-				<li><input type="tel" value="{{phone}}" name="phone"></li>
-				<li><textarea value="{{address}}" name="address"></textarea></li>
-				<li><textarea value="{{notes}}" name="notes"></textarea></li>
-			</ul>
-			{{else}}
-			<ul>
-				<li><strong>{{firstName}} {{lastName}}</strong></li>
-				<li>{{email}}</li>
-				<li>{{phone}}</li>
-				<li>{{address}}</li>
-				<li>{{notes}}</li>
-			</ul>
-			{{/if}}
-		</div>
-	</div>
+	{{/if}}
 </template>
 
 

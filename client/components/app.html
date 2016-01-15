@@ -17,15 +17,8 @@
 
 <!-- Login Layout -->
 <template name="LoginLayout">
-	{{> yield "nav" }}
-
-	<main class="animated">
-		<div class="container">
-			{{> yield "main"}}
-		</div>
-	</main>
-
-	<div class="container">
-		{{> footer}}
-	</div>
+	
+	{{> yield "main" }}
+	
+	<!-- {{> yield "nav" }} -->
 </template>
